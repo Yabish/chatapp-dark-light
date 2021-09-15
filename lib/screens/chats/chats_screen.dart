@@ -2,8 +2,15 @@ import 'package:chat/constants.dart';
 import 'package:chat/screens/chats/components/body.dart';
 import 'package:flutter/material.dart';
 
-class ChatsScreen extends StatelessWidget {
+class ChatsScreen extends StatefulWidget {
   const ChatsScreen({Key key}) : super(key: key);
+
+  @override
+  State<ChatsScreen> createState() => _ChatsScreenState();
+}
+
+class _ChatsScreenState extends State<ChatsScreen> {
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -18,27 +25,45 @@ class ChatsScreen extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.messenger,
-          ),
-          label: "Chats",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.people,
-          ),
-          label: "People",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.call,
-          ),
-          label: "Call",
-        ),
-      ]),
+      bottomNavigationBar: buildBottomNavigationBar(),
     );
+  }
+
+  BottomNavigationBar buildBottomNavigationBar() {
+    return BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIndex,
+        onTap: (value) {
+          setState(() {
+            _selectedIndex = value;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.messenger,
+            ),
+            label: "Chats",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.people,
+            ),
+            label: "People",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.call,
+            ),
+            label: "Call",
+          ),
+          BottomNavigationBarItem(
+            icon: CircleAvatar(
+              backgroundImage: AssetImage('assets/images/user_2.png'),
+            ),
+            label: "Profile",
+          ),
+        ]);
   }
 
   AppBar buildAppBar() {

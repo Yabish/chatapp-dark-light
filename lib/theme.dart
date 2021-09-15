@@ -18,7 +18,7 @@ ThemeData lightThemeData(BuildContext context) {
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: kContentColorDarkTheme,
       selectedItemColor: kPrimaryColor,
-      unselectedItemColor: kPrimaryColor.withOpacity(0.5),
+      unselectedItemColor: kContentColorLightTheme.withOpacity(0.5),
     ),
   );
 }
@@ -39,7 +39,7 @@ ThemeData darkThemeData(BuildContext context) {
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: kContentColorLightTheme,
       selectedItemColor: kPrimaryColor,
-      unselectedItemColor: kPrimaryColor.withOpacity(0.6),
+      unselectedItemColor: kContentColorDarkTheme.withOpacity(0.6),
     ),
   );
 }
