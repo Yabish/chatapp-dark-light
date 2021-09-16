@@ -51,10 +51,52 @@ class Message extends StatelessWidget {
             ),
           ],
           Padding(
-            padding: const EdgeInsets.only(right: kDefaultPadding),
+            padding: const EdgeInsets.only(right: kDefaultPadding / 2),
             child: messageContainer(message),
           ),
+          if (message.isSender) MessageStatusDot(status: message.messageStatus),
         ],
+      ),
+    );
+  }
+}
+
+class MessageStatusDot extends StatelessWidget {
+  const MessageStatusDot({Key key, this.status}) : super(key: key);
+
+  final MessageStatus status;
+
+  @override
+  Widget build(BuildContext context) {
+    Color colorStatus(status) {
+      switch (status) {
+        case MessageStatus.not_sent:
+          return kErrorColor;
+          break;
+
+        case MessageStatus.not_view:
+          return Theme.of(context).textTheme.bodyText1.color.withOpacity(0.1);
+          break;
+        case MessageStatus.viewed:
+          return kPrimaryColor;
+          break;
+        default:
+          return Colors.transparent;
+      }
+    }
+
+    return Container(
+      margin: EdgeInsets.only(right: kDefaultPadding / 2),
+      height: 10,
+      width: 10,
+      decoration: BoxDecoration(
+        color: colorStatus(status),
+        shape: BoxShape.circle,
+      ),
+      child: Icon(
+        status == MessageStatus.not_sent ? Icons.close : Icons.done,
+        size: 6,
+        color: Colors.white,
       ),
     );
   }
