@@ -8,17 +8,31 @@ class MessageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildAppBar(context),
       body: Body(),
     );
   }
 
-  AppBar buildAppBar() {
+  AppBar buildAppBar(context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       title: Row(
         children: [
-          CircleAvatar(
-            backgroundImage: AssetImage('assets/images/user_2.png'),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ),
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/user_2.png'),
+                ),
+              ],
+            ),
           ),
           SizedBox(
             width: kDefaultPadding / 2,

@@ -1,4 +1,3 @@
-import 'package:chat/constants.dart';
 import 'package:chat/models/ChatMessage.dart';
 import 'package:chat/screens/messages/components/chat_input_field.dart';
 import 'package:chat/screens/messages/components/message.dart';
@@ -12,14 +11,10 @@ class Body extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
-            child: ListView.builder(
-              itemCount: demeChatMessages.length,
-              itemBuilder: (context, index) => Message(
-                message: demeChatMessages[index],
-              ),
+          child: ListView.builder(
+            itemCount: demeChatMessages.length,
+            itemBuilder: (context, index) => Message(
+              message: demeChatMessages[index],
             ),
           ),
         ),
