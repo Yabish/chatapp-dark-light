@@ -1,4 +1,5 @@
 import 'package:chat/constants.dart';
+import 'package:chat/screens/messages/components/body.dart';
 import 'package:flutter/material.dart';
 
 class MessageScreen extends StatelessWidget {
@@ -8,6 +9,7 @@ class MessageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
+      body: Body(),
     );
   }
 
