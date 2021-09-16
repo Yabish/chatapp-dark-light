@@ -37,7 +37,7 @@ class SignInOdSignUpScreen extends StatelessWidget {
             SizedBox(height: kDefaultPadding * .5),
             PrimaryButton(
               color: Theme.of(context).colorScheme.secondary,
-              text: 'Sign In',
+              text: 'Sign Up',
               press: () {},
             ),
             Spacer(

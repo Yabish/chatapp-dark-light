@@ -21,12 +21,14 @@ class WelcomeScreen extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
           Spacer(flex: 1),
-          Text(
-            'Freedom Talk any person of your \nmother language.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color:
-                  Theme.of(context).textTheme.bodyText1.color.withOpacity(0.64),
+          Opacity(
+            opacity: 0.6,
+            child: Text(
+              'Freedom Talk any person of your \nmother language.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+              ),
             ),
           ),
           Spacer(flex: 1),
@@ -40,27 +42,23 @@ class WelcomeScreen extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Text(
-                    'Skip',
-                    style: Theme.of(context).textTheme.bodyText1.copyWith(
-                          color: Theme.of(context)
-                              .textTheme
-                              .bodyText1
-                              .color
-                              .withOpacity(0.8),
-                        ),
+                  Opacity(
+                    opacity: 0.6,
+                    child: Text(
+                      'Skip',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   SizedBox(
                     width: kDefaultPadding / 4,
                   ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 16,
-                    color: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        .color
-                        .withOpacity(0.8),
+                  Opacity(
+                    opacity: 0.6,
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 16,
+                      color: Colors.white,
+                    ),
                   ),
                 ],
               ),
