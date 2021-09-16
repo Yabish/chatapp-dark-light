@@ -50,7 +50,7 @@ class AudioMessage extends StatelessWidget {
                       height: kDefaultPadding / 2,
                       width: kDefaultPadding / 2,
                       decoration: BoxDecoration(
-                        color: kPrimaryColor,
+                        color: message.isSender ? Colors.white : kPrimaryColor,
                         shape: BoxShape.circle,
                       ),
                     ),
